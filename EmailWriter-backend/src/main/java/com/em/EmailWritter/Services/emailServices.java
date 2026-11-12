@@ -1,3 +1,4 @@
+
 package com.em.EmailWritter.Services;
 
 import com.em.EmailWritter.Controller.EmailRequest;
@@ -8,78 +9,83 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.Map;
-import java.util.Objects;
 
 @Service
 public class emailServices {
 
     private final WebClient webClient;
+    private final ObjectMapper objectMapper = new ObjectMapper();
 
-    @Value("${gemini.api.url}")
-    private String geminiApiUrl;
+    @Value("${openai.api.url}")
+    private String openAiApiUrl;
 
-    @Value("${gemini.api.key}")
-    private String geminiApiKey;
+    @Value("${openai.api.key}")
+    private String openAiApiKey;
 
     public emailServices(WebClient.Builder webClient) {
         this.webClient = webClient.build();
     }
 
+    public String generateReply(EmailRequest emailRequest) {
 
-    public String generateReply(EmailRequest emailRequest){
+        String prompt = buildPrompt(emailRequest);
 
-        //biuld the prompt
-        String prompt=buildPrompt(emailRequest);
-        //craft request
         Map<String, Object> requestBody = Map.of(
-                "contents", new Object[]{
-                        Map.of("parts", new Object[]{
-                                Map.of("text",prompt)
-                        })
-                }
+                "model", "gpt-4.1-mini",
+                "input", prompt
         );
-        //do request and get response
 
-       String response=webClient.post()
-               .uri(geminiApiUrl + "?key=" + geminiApiKey)
-               .header("Content-Type","application/json")
-               .bodyValue(requestBody)
-               .retrieve()
-               .bodyToMono(String.class)
-               .block();
+        String response = webClient.post()
+                .uri(openAiApiUrl)
+                .header("Authorization", "Bearer " + openAiApiKey)
+                .header("Content-Type", "application/json")
+                .bodyValue(requestBody)
+                .retrieve()
+                .bodyToMono(String.class)
+                .block();
 
-
-        //Extract response and return 
-        return  extractResponseContent(response);
+        return extractResponseContent(response);
     }
 
     private String extractResponseContent(String response) {
-   try {
-       ObjectMapper mapper = new ObjectMapper();
-       JsonNode rootNode = mapper.readTree(response);
-       return rootNode.path("candidates")
-               .get(0)
-               .path("content")
-               .path("parts")
-               .get(0)
-               .path("text")
-               .asText();
+        try {
+            JsonNode rootNode = objectMapper.readTree(response);
+            JsonNode output = rootNode.path("output");
 
-   } catch (Exception e) {
-       return  "Error processing request : "+e.getMessage();
-   }
+            for (JsonNode item : output) {
+                for (JsonNode content : item.path("content")) {
+                    if ("output_text".equals(content.path("type").asText())) {
+                        return content.path("text").asText();
+                    }
+                }
+            }
+
+            return "No email reply was generated.";
+
+        } catch (Exception e) {
+            return "Error processing response: " + e.getMessage();
+        }
     }
 
     private String buildPrompt(EmailRequest emailRequest) {
-        StringBuilder prompt = new StringBuilder();
-        prompt.append("Generate a professional email reply for the following email content. Please don't generate a subject line. ");
 
-        if (emailRequest.getTone() != null && !emailRequest.getTone().isEmpty()) {
-            prompt.append("Use a ").append(emailRequest.getTone()).append(" tone. ");
+        StringBuilder prompt = new StringBuilder();
+
+        prompt.append(
+                "Generate a professional email reply for the following email content. "
+                        + "Do not generate a subject line. "
+        );
+
+        if (emailRequest.getTone() != null
+                && !emailRequest.getTone().isEmpty()) {
+            prompt.append("Use a ")
+                    .append(emailRequest.getTone())
+                    .append(" tone. ");
         }
 
-        prompt.append("\nOriginal Email:\n").append(emailRequest.getEmailContent());
-        return prompt.toString();
+        prompt.append("\nOriginal Email:\n")
+                .append(emailRequest.getEmailContent());
 
-}
+        return prompt.toString();
+    }
 }

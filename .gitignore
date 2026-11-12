@@ -1,0 +1,16 @@
+
+# Node dependencies
+node_modules/
+
+# Java build output
+target/
+
+# IntelliJ local workspace
+.idea/workspace.xml
+
+# API keys and environment files
+.env
+.env.*
+!.env.example
+
+.ai/
