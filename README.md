@@ -35,15 +35,13 @@ The project offers two ways to use the assistant:
 
 ## 🖥️ Web UI Preview
 
-<p align="center">
-  <img src="docs/screenshots/web-ui-homepage.png" alt="SmartMail Assistant Web Interface" width="100%"/>
-</p>
+<img width="830" height="473" alt="image" src="https://github.com/user-attachments/assets/6ef3241f-240f-44b3-a7cb-17a61ef132dc" />
+
 
 ## 📩 Gmail Extension Preview
 
-<p align="center">
-  <img src="docs/screenshots/gmail-extension.png" alt="SmartMail Assistant Gmail Extension" width="100%"/>
-</p>
+<img width="797" height="421" alt="image" src="https://github.com/user-attachments/assets/8ee994f8-ee1b-4b4b-a429-391dcfd0a8d1" />
+
 
 ---
 
