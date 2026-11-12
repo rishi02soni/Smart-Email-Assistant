@@ -1,183 +1,292 @@
+
 # SmartMail Assistant 🤖✉️
 
-SmartMail Assistant is a **powerful AI-driven Chrome extension** that helps users **draft and reply to emails instantly inside Gmail**. Designed with a modern **full-stack architecture**, it improves productivity, reduces response time, and ensures professional communication with minimal effort.
+### Write better emails. Reply faster. Stay in your workflow.
+
+An AI-powered email assistant with a standalone web interface and a Chrome extension designed for Gmail.
+
+<p align="center">
+  <a href="YOUR_LIVE_DEMO_URL">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-Visit_Web_App-6C63FF?style=for-the-badge" alt="Live Demo"/>
+  </a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-17%2B-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Spring_Boot-Backend-6DB33F?style=for-the-badge&logo=springboot&logoColor=white"/>
+  <img src="https://img.shields.io/badge/React-Web_UI-61DAFB?style=for-the-badge&logo=react&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Vite-Frontend-646CFF?style=for-the-badge&logo=vite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/OpenAI-API-412991?style=for-the-badge&logo=openai&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Chrome-Extension-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white"/>
+</p>
 
 ---
 
-## 🚀 Why SmartMail Assistant?
+## 🚀 Overview
 
-Writing emails can be repetitive and time-consuming. SmartMail Assistant leverages **Google Gemini AI** to generate **context-aware, tone-customized email replies** directly within your inbox—no tab switching, no copy-paste hassle.
+SmartMail Assistant helps users create clear, context-aware email replies using AI. Choose a writing tone, provide the original email, and generate a reply in seconds.
 
-This project demonstrates **real-world AI integration**, **scalable backend design**, and **production-ready Chrome extension development**.
+The project offers two ways to use the assistant:
+
+| Mode | How it works |
+|---|---|
+| **Web App** | Open the React interface, paste an email, select a tone, and generate a reply. |
+| **Gmail Chrome Extension** | Use the extension's in-page action to access the assistant while working in Gmail. |
+
+## 🖥️ Web UI Preview
+
+<p align="center">
+  <img src="docs/screenshots/web-ui-homepage.png" alt="SmartMail Assistant Web Interface" width="100%"/>
+</p>
+
+## 📩 Gmail Extension Preview
+
+<p align="center">
+  <img src="docs/screenshots/gmail-extension.png" alt="SmartMail Assistant Gmail Extension" width="100%"/>
+</p>
 
 ---
 
 ## ✨ Key Features
 
-* ⚡ **Instant Reply Generation**
-  Generate intelligent, context-aware email replies in seconds using Google Gemini AI.
-
-* 🎭 **Tone Customization**
-  Choose from **Professional**, **Casual**, or **Friendly** tones to match the conversation style.
-
-* 🔌 **Seamless Gmail Integration**
-  Works directly inside Gmail using a Chrome Extension—no external tools required.
-
-* 📋 **One-Click Copy**
-  Copy generated replies instantly to your clipboard.
-
-* 🛡️ **Secure & Private**
-  Email content is processed securely through a private backend with **no unnecessary data storage**.
+- ⚡ **AI-Powered Reply Generation** – Generate context-aware email replies in seconds.
+- 🎭 **Tone Customization** – Choose Professional, Casual, or Friendly tones.
+- 🌐 **Standalone Web Application** – Write and generate replies through a dedicated web interface.
+- 🔌 **Gmail Integration** – Access the assistant through a Chrome extension.
+- 📋 **One-Click Copy** – Copy generated replies instantly.
+- 🔐 **Secure API Handling** – Keep API credentials on the backend instead of exposing them in frontend code.
+- 📱 **Responsive Interface** – Clean and modern user experience.
 
 ---
 
-## 🧠 Tech Stack Overview
+## 🛠️ Tech Stack
 
-### 🖥️ Frontend (Chrome Extension)
+### Frontend
+<p>
+  <img src="https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black"/>
+  <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Material_UI-007FFF?style=flat-square&logo=mui&logoColor=white"/>
+  <img src="https://img.shields.io/badge/CSS-1572B6?style=flat-square&logo=css3&logoColor=white"/>
+</p>
 
-![React](https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg)
-![Chrome](https://raw.githubusercontent.com/devicons/devicon/master/icons/chrome/chrome-original.svg)
+- React.js
+- Vite
+- Material UI (MUI)
+- CSS
 
-* **React.js** – Component-based UI
-* **Material-UI (MUI)** – Clean, modern interface
-* **Chrome Extensions (Manifest V3)**
+### Backend
+<p>
+  <img src="https://img.shields.io/badge/Java_17-ED8B00?style=flat-square&logo=openjdk&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=springboot&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=apachemaven&logoColor=white"/>
+</p>
 
----
+- Java 17
+- Spring Boot
+- Spring WebClient
+- REST APIs
+- Jackson
 
-### ⚙️ Backend (API Server)
+### AI Integration
+<p>
+  <img src="https://img.shields.io/badge/OpenAI_API-412991?style=flat-square&logo=openai&logoColor=white"/>
+</p>
 
-![Java](https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg)
-![Spring](https://raw.githubusercontent.com/devicons/devicon/master/icons/spring/spring-original.svg)
+- OpenAI Responses API
+- GPT-4.1 mini
+- Prompt Engineering
 
-* **Java 17**
-* **Spring Boot**
-* **Spring WebClient** (Reactive HTTP calls)
-* **Spring Boot Actuator** (Monitoring & health checks)
-* **RESTful API architecture**
+### Browser Integration
+<p>
+  <img src="https://img.shields.io/badge/Chrome_Extensions-4285F4?style=flat-square&logo=googlechrome&logoColor=white"/>
+</p>
 
----
-
-### ☁️ AI & Cloud Services
-
-![Google Cloud](https://raw.githubusercontent.com/devicons/devicon/master/icons/googlecloud/googlecloud-original.svg)
-
-* **Google Gemini API**
-* Prompt engineering for optimized AI responses
-
----
-
-## 🧩 Architecture Overview
-
-```
-Gmail UI
-   ↓
-Chrome Extension (React + MUI)
-   ↓ REST API
-Spring Boot Backend (Java)
-   ↓
-Google Gemini API
-```
-
----
-
-## 📦 Installation & Setup
-
-### 🔑 Prerequisites
-
-* Node.js **v18+**
-* npm or yarn
-* Java **17+**
-* Maven
-* Google Cloud Project with **Gemini API enabled**
+- Chrome Extension
+- Manifest V3
+- Gmail integration
 
 ---
 
-## 🔧 Backend Setup (Spring Boot)
+## 🧠 Architecture
 
-```bash
-cd backend
-```
-
-Create `src/main/resources/application.yml`:
-
-```yaml
-gemini:
-  api:
-    key: YOUR_GEMINI_API_KEY
-    url: https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent
-
-server:
-  port: 8080
+```text
+                    SMARTMAIL ASSISTANT
+                             |
+              +--------------+--------------+
+              |                             |
+          WEB APP MODE                  GMAIL MODE
+              |                             |
+         React + Vite                 Chrome Extension
+              |                             |
+              +--------------+--------------+
+                             |
+                       REST API Request
+                             |
+                    Spring Boot Backend
+                         (Java)
+                             |
+                       Email Service
+                             |
+                    OpenAI Responses API
+                             |
+                    Generated Email Reply
+                             |
+                   Return Reply to Client
 ```
 
-Run the backend:
+### 🔄 How It Works
 
-```bash
-mvn spring-boot:run
-```
-
-➡️ Backend will start at: **[http://localhost:8080](http://localhost:8080)**
-
----
-
-## 🧩 Frontend Setup (Chrome Extension)
-
-```bash
-cd frontend
-npm install
-```
-
-Update API endpoint if required (default: `http://localhost:8080`).
-
-Build the extension:
-
-```bash
-npm run build
-```
-
----
-
-## 🧩 Load Extension in Chrome
-
-1. Open `chrome://extensions/`
-2. Enable **Developer mode**
-3. Click **Load unpacked**
-4. Select the `build/` or `dist/` folder
-
----
-
-## 📨 Using SmartMail Assistant
-
-1. Pin **SmartMail Assistant** to Chrome toolbar
-2. Open Gmail and select an email
-3. Click the extension icon
-4. Choose a tone
-5. Click **Generate Reply**
-6. Copy and send 🎉
+1. User enters the original email content.
+2. User selects the preferred reply tone.
+3. React sends the email content and tone to the Spring Boot backend.
+4. The backend constructs an AI prompt.
+5. Spring WebClient sends a request to the OpenAI API.
+6. Jackson extracts the generated reply from the API response.
+7. The generated reply is returned to the frontend.
+8. The user can review and copy the response.
 
 ---
 
 ## 📁 Project Structure
 
-```
-SmartMail-Assistant/
+```text
+Smart-Email-Assistant/
 │
-├── backend/                # Spring Boot Application
-│   ├── src/main/java/
-│   │   └── com/em/EmailWriter/
-│   │       ├── controller/
-│   │       ├── service/
-│   │       ├── model/
-│   │       └── Application.java
+├── email-writer-react/
+│   ├── src/
+│   │   ├── App.jsx
+│   │   └── App.css
+│   └── package.json
+│
+├── EmailWriter-backend/
+│   ├── src/main/java/com/em/EmailWritter/
+│   │   ├── Controller/
+│   │   ├── Services/
+│   │   └── EmailWritterApplication.java
+│   ├── src/main/resources/
+│   │   └── application.properties
 │   └── pom.xml
 │
-└── frontend/               # Chrome Extension (React)
-    ├── public/
-    ├── src/
-    │   └── components/
-    ├── package.json
-    └── manifest.json
+├── EmailWriterExtension/
+│   ├── manifest.json
+│   ├── content.js
+│   └── content.css
+│
+├── docs/
+│   └── screenshots/
+│       ├── web-ui-homepage.png
+│       └── gmail-extension.png
+│
+├── .gitignore
+└── README.md
 ```
+
+---
+
+## ⚙️ Getting Started
+
+### Prerequisites
+
+Make sure you have installed:
+
+- Java 17+
+- Maven
+- Node.js 18+
+- npm
+- Google Chrome
+- OpenAI API key
+
+Get your API key from the [OpenAI Platform](https://platform.openai.com/api-keys).
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/rishi02soni/Smart-Email-Assistant.git
+cd Smart-Email-Assistant
+```
+
+Replace the repository URL if your GitHub repository uses a different name.
+
+### 2. Configure the OpenAI API Key
+
+Open:
+
+`EmailWriter-backend/src/main/resources/application.properties`
+
+Add:
+
+```properties
+spring.application.name=EmailWriter
+
+openai.api.url=https://api.openai.com/v1/responses
+openai.api.key=${OPENAI_API_KEY}
+```
+
+Set your API key as an environment variable.
+
+**Windows PowerShell:**
+
+```powershell
+$env:OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
+```
+
+**macOS / Linux:**
+
+```bash
+export OPENAI_API_KEY="YOUR_OPENAI_API_KEY"
+```
+
+Never commit your API key to GitHub.
+
+### 3. Run the Backend
+
+Open a terminal:
+
+```bash
+cd EmailWriter-backend
+mvn clean spring-boot:run
+```
+
+Backend runs at:
+
+```text
+http://localhost:8080
+```
+
+Keep this terminal running.
+
+### 4. Run the Web Application
+
+Open another terminal:
+
+```bash
+cd email-writer-react
+npm install
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:5173
+```
+
+The frontend communicates with:
+
+```text
+http://localhost:8080/api/email/generate
+```
+
+### 5. Install the Chrome Extension
+
+1. Open `chrome://extensions` in Google Chrome.
+2. Enable **Developer mode**.
+3. Click **Load unpacked**.
+4. Select the `EmailWriterExtension` folder.
+5. Pin SmartMail Assistant to your Chrome toolbar.
+6. Open Gmail and test the extension.
+
+After changing extension files, click **Reload** on the extension page and refresh Gmail.
 
 ---
 
@@ -185,22 +294,52 @@ SmartMail-Assistant/
 
 ### Generate Email Reply
 
-**POST** `/api/email/generate`
+**Endpoint**
 
-**Request Body:**
+```http
+POST /api/email/generate
+```
+
+**Request Body**
 
 ```json
 {
-  "emailContent": "Full email text",
+  "emailContent": "Hi, could you please share the project update?",
   "tone": "Professional"
 }
 ```
 
-**Response:**
+**Response**
 
 ```text
-Generated email reply text
+Hi,
+
+Thank you for reaching out. I would be happy to share
+the latest project update.
+
+Best regards
 ```
+
+---
+
+## 🔐 Security & Privacy
+
+- Keep API credentials in environment variables.
+- Never expose API keys in frontend code.
+- Do not commit `.env` files or private credentials.
+- Review AI-generated replies before sending.
+- Avoid submitting confidential email content unless authorized.
+
+---
+
+## 🚧 Future Improvements
+
+- Real-time streaming of generated replies.
+- Additional email tones and writing styles.
+- Reply length customization.
+- Improved Gmail email-context detection.
+- Better error handling and automated testing.
+- Cloud deployment of frontend and backend.
 
 ---
 
@@ -208,20 +347,25 @@ Generated email reply text
 
 Contributions are welcome!
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to your branch
-5. Open a Pull Request
+1. Fork the repository.
+2. Create a feature branch.
+3. Commit your changes.
+4. Push your branch.
+5. Open a Pull Request.
 
 ---
 
 ## 👨‍💻 Author
 
 **Rishi Soni**
-🔗 LinkedIn: [https://www.linkedin.com/in/rishi-soni-28986923b/](https://www.linkedin.com/in/rishi-soni-28986923b/)
-💻 GitHub: [https://github.com/rishi02soni/](https://github.com/rishi02soni/)
+
+- LinkedIn: [Rishi Soni](https://www.linkedin.com/in/rishi-soni-28986923b/)
+- GitHub: [rishi02soni](https://github.com/rishi02soni/)
 
 ---
 
-⭐ If you like this project, don’t forget to **star the repository**!
+<p align="center">
+  ⭐ If you find this project useful, consider giving the repository a star!
+  <br/><br/>
+  <strong>SmartMail Assistant — Write Smarter. Reply Faster.</strong>
+</p>
